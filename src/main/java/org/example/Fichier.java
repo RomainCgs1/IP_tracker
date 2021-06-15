@@ -117,7 +117,7 @@ public class Fichier {
 
         if(date != null)
         {
-            this.contenu = this.contenu + "Archive des journaux du " + date.getJour() + " " + date.getMois() + " " + date.getAnnee() + "\n";
+            this.contenu = this.contenu + "Archive des journaux du " + date + "\n";
         }
 
         this.contenu = this.contenu + "Début du rapport : \n \n";
@@ -159,7 +159,7 @@ public class Fichier {
                     }
 
                     this.contenu = this.contenu +  "        " + (t + 1) + ". \n" +
-                            "           Le " + dates[t].getJour() + " " + dates[t].getMois() + " " + dates[t].getAnnee() + " à " + dates[t].getHeures() + " heures " + dates[t].getMinutes() + " minutes " + dates[t].getSecondes() + " secondes \n" +
+                            "           Le " + dates[t] + "\n" +
                             "           IP : " + ip + "\n";
                     this.contenu = this.contenu +  "           Site trouvé : " + adresse + "\n";
                 }
@@ -185,6 +185,7 @@ public class Fichier {
             fileChooser.setInitialDirectory(new File(saveChemin));
         }
         fileChooser.setTitle("Sauvegarder");
+        fileChooser.setInitialFileName("Imputabilities_logs du " + this.date + " : nom de domaine");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files", "*txt"));
         File file = fileChooser.showSaveDialog(new Stage());
         saveChemin = file.getAbsolutePath();
@@ -198,7 +199,7 @@ public class Fichier {
         }
 
 
-        FileWriter myWriter = new FileWriter( saveChemin);
+        FileWriter myWriter = new FileWriter(saveChemin);
         myWriter.write("Début du rapport : \n \n");
 
         myWriter.write(this.contenu);

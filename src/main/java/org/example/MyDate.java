@@ -66,50 +66,29 @@ public class MyDate {
         this.annee = annee;
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+        s = jour + " " + mois + " " + annee;
+
+        if(secondes != 0 || minutes != 0 || heures != 0 || milis != 0)
+        {
+            s += " à " + heures + " heures " + minutes + " minutes " + secondes;
+            if(milis != 0)
+            {
+                s += "," + milis;
+            }
+
+            s += " secondes";
+        }
+
+        return s;
+    }
+
     public MyDate(int jour, int mois, int annee)
     {
         this.jour = jour;
-
-        switch (mois)
-        {
-            case 1:
-                this.mois = "Janvier";
-                break;
-            case 2:
-                this.mois = "Février";
-                break;
-            case 3:
-                this.mois = "Mars";
-                break;
-            case 4:
-                this.mois = "Avril";
-                break;
-            case 5:
-                this.mois = "Mai";
-                break;
-            case 6:
-                this.mois = "Juin";
-                break;
-            case 7:
-                this.mois = "Juillet";
-                break;
-            case 8:
-                this.mois = "Aout";
-                break;
-            case 9:
-                this.mois = "Septembre";
-                break;
-            case 10:
-                this.mois = "Octobre";
-                break;
-            case 11:
-                this.mois = "Novembre";
-                break;
-            case 12:
-                this.mois = "Décembre";
-                break;
-
-        }
+        this.mois = tradMois(mois);
         this.annee = annee;
     }
 
@@ -135,48 +114,7 @@ public class MyDate {
         this.minutes = minutes;
         this.heures = heures;
         this.jour = jour;
-
-        switch (mois)
-        {
-            case 1:
-                this.mois = "Janvier";
-                break;
-            case 2:
-                this.mois = "Février";
-                break;
-            case 3:
-                this.mois = "Mars";
-                break;
-            case 4:
-                this.mois = "Avril";
-                break;
-            case 5:
-                this.mois = "Mai";
-                break;
-            case 6:
-                this.mois = "Juin";
-                break;
-            case 7:
-                this.mois = "Juillet";
-                break;
-            case 8:
-                this.mois = "Aout";
-                break;
-            case 9:
-                this.mois = "Septembre";
-                break;
-            case 10:
-                this.mois = "Octobre";
-                break;
-            case 11:
-                this.mois = "Novembre";
-                break;
-            case 12:
-                this.mois = "Décembre";
-                break;
-
-        }
-
+        this.mois = tradMois(mois);
         this.annee = annee;
     }
 
@@ -187,49 +125,100 @@ public class MyDate {
         this.minutes = Integer.parseInt(minutes);
         this.heures = Integer.parseInt(heures);
         this.jour = Integer.parseInt(jour);
+        this.mois = tradMois(mois);
+        this.annee = Integer.parseInt(annee);
+    }
 
+    public static String tradMois(String mois)
+    {
+        String s = "";
         switch (Integer.parseInt(mois))
         {
             case 1:
-                this.mois = "Janvier";
+                s = "Janvier";
                 break;
             case 2:
-                this.mois = "Février";
+                s = "Février";
                 break;
             case 3:
-                this.mois = "Mars";
+                s = "Mars";
                 break;
             case 4:
-                this.mois = "Avril";
+                s = "Avril";
                 break;
             case 5:
-                this.mois = "Mai";
+                s = "Mai";
                 break;
             case 6:
-                this.mois = "Juin";
+                s = "Juin";
                 break;
             case 7:
-                this.mois = "Juillet";
+                s = "Juillet";
                 break;
             case 8:
-                this.mois = "Aout";
+                s = "Aout";
                 break;
             case 9:
-                this.mois = "Septembre";
+                s = "Septembre";
                 break;
             case 10:
-                this.mois = "Octobre";
+                s = "Octobre";
                 break;
             case 11:
-                this.mois = "Novembre";
+                s = "Novembre";
                 break;
             case 12:
-                this.mois = "Décembre";
+                s = "Décembre";
                 break;
 
         }
+        return s;
+    }
 
-        this.annee = Integer.parseInt(annee);
+    public static String tradMois(int mois)
+    {
+        String s = "";
+        switch (mois)
+        {
+            case 1:
+                s = "Janvier";
+                break;
+            case 2:
+                s = "Février";
+                break;
+            case 3:
+                s = "Mars";
+                break;
+            case 4:
+                s = "Avril";
+                break;
+            case 5:
+                s = "Mai";
+                break;
+            case 6:
+                s = "Juin";
+                break;
+            case 7:
+                s = "Juillet";
+                break;
+            case 8:
+                s = "Aout";
+                break;
+            case 9:
+                s = "Septembre";
+                break;
+            case 10:
+                s = "Octobre";
+                break;
+            case 11:
+                s = "Novembre";
+                break;
+            case 12:
+                s = "Décembre";
+                break;
+
+        }
+        return s;
     }
 
 }

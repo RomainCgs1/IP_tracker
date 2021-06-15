@@ -17,6 +17,7 @@
 
 package org.example;
 
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
