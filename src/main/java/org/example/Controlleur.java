@@ -25,9 +25,9 @@ import java.io.IOException;
 
 public class Controlleur {
 
-    private MainGraphique vue;
+    private final MainGraphique vue;
     private int etat;
-    private Fichier fichier;
+    private final Fichier fichier;
     String text;
 
     public Controlleur(MainGraphique vue)

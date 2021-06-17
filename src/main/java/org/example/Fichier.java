@@ -151,7 +151,7 @@ public class Fichier {
                     System.out.println(iP[t]);
                     String ip = iP[t];
                     String adresse = App.getAdress(ip);
-                    System.out.println("");
+                    System.out.println();
                     if(!adresse.contains("Inconnu"))
                     {
                         connection = true;
@@ -199,11 +199,7 @@ public class Fichier {
 
 
         FileWriter myWriter = new FileWriter(saveChemin);
-        myWriter.write("Début du rapport : \n \n");
-
         myWriter.write(this.contenu);
-
-        myWriter.write("Fin du rapport.");
         myWriter.close();
     }
 

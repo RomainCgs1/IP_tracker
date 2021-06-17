@@ -31,12 +31,12 @@ import java.io.IOException;
 
 public class MainGraphique extends BorderPane {
 
-    private MyB ouvrirPdf;
-    private MyB enregistrer;
-    private HBox HBMenu;
-    private MyText text;
-    private ScrollPane scrollPane;
-    private Controlleur controlleur;
+    private final MyB ouvrirPdf;
+    private final MyB enregistrer;
+    private final HBox HBMenu;
+    private final MyText text;
+    private final ScrollPane scrollPane;
+    private final Controlleur controlleur;
 
     public MyB getOuvrirPdf() {
         return ouvrirPdf;

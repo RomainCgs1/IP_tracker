@@ -18,9 +18,9 @@
 package org.example;
 
 public class MyDate {
-    private int jour;
-    private String mois;
-    private int annee;
+    private final int jour;
+    private final String mois;
+    private final int annee;
     private boolean detaillee = false;
     private int heures;
     private int minutes;
@@ -68,7 +68,7 @@ public class MyDate {
 
     @Override
     public String toString() {
-        String s = "";
+        String s;
         s = jour + " " + mois + " " + annee;
 
         if(secondes != 0 || minutes != 0 || heures != 0 || milis != 0)
