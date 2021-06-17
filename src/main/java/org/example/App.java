@@ -26,10 +26,6 @@ import java.net.UnknownHostException;
 public class App 
 {
     public static void main( String[] args ) {
-        //System.out.println( "Hello World!" );
-        //String ip = Lire.S();
-        //InetAddress addr = Address.getByName(ip);
-        //System.out.println(addr);
         String ip;
         InetAddress test = null;
         String nom = null;
