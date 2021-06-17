@@ -67,7 +67,7 @@ public class MainGraphique extends BorderPane {
         this.text = new MyText("test");
         text.setText(text.getText() + "\nbonjour");
         scrollPane = new ScrollPane(text);
-        
+
         this.setCenter(this.scrollPane);
 
 

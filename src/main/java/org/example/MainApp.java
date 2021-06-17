@@ -19,7 +19,6 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 //classe principale
@@ -35,6 +34,8 @@ public class MainApp extends Application {
         stage.setHeight(600);
         stage.centerOnScreen();
         stage.show();
+        stage.setMinHeight(260);
+        stage.setMinWidth(240);
     }
 
     public static void main(String[] args) {
