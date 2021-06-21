@@ -73,7 +73,7 @@ public class MyDate {
 
         if(secondes != 0 || minutes != 0 || heures != 0 || milis != 0)
         {
-            s += " à " + heures + " heures " + minutes + " minutes " + secondes;
+            s += ", à " + heures + " heures " + minutes + " minutes " + secondes;
             if(milis != 0)
             {
                 s += "," + milis;
