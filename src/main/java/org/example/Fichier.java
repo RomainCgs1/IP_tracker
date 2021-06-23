@@ -179,12 +179,12 @@ public class Fichier {
 
 
         FileChooser fileChooser = new FileChooser();
-        if(saveChemin != null)
+        /*if(saveChemin != null)
         {
             fileChooser.setInitialDirectory(new File(saveChemin));
-        }
+        }*/
         fileChooser.setTitle("Sauvegarder");
-        fileChooser.setInitialFileName("Imputabilities_logs du " + this.date + " : nom de domaine");
+        fileChooser.setInitialFileName("Imputabilities_logs du " + this.date + " -- nom de domaine");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files", "*txt"));
         File file = fileChooser.showSaveDialog(new Stage());
         saveChemin = file.getAbsolutePath();
