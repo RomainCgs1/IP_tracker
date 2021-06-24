@@ -20,9 +20,9 @@ package org.example;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -108,15 +108,28 @@ public class Fichier {
 
 
         File file = new File(chemin);
-        PDDocument document = Loader.loadPDF(file);
-        //Instantiate PDFTextStripper class
-        PDFTextStripper pdfStripper = new PDFTextStripper();
-        //Retrieving text from PDF document
-        String text = pdfStripper.getText(document);
-        String[] sText = text.split("\n");
-        System.out.println(text);
-        //Closing the document
-        document.close();
+        String[] sText = null;
+
+        try (PDDocument document = PDDocument.load(file)) {
+
+            document.getClass();
+
+            if (!document.isEncrypted()) {
+
+                PDFTextStripperByArea stripper = new PDFTextStripperByArea();
+                stripper.setSortByPosition(true);
+
+                PDFTextStripper tStripper = new PDFTextStripper();
+
+                String pdfFileInText = tStripper.getText(document);
+                //System.out.println("Text:" + st);
+
+                // split by whitespace
+                sText = pdfFileInText.split("\\r?\\n");
+            }
+
+        }
+
         String user = "";
 
         if(date != null)
@@ -207,72 +220,5 @@ public class Fichier {
         myWriter.write(this.contenu);
         myWriter.close();
     }
-
-    public static void main(String[] args) throws IOException {
-
-        //create new txt
-        File txt = new File("rapport_text.txt");
-        if(txt.createNewFile())
-        {
-            System.out.println("File created : "+ txt.getName());
-        }else {
-            System.out.println("File already exists.");
-        }
-
-        FileWriter myWriter = new FileWriter(txt.getName());
-        myWriter.write("Début du rapport : \n \n");
-
-        //Loading an existing document
-        File file = new File("/Users/romain.cgs/Downloads/imputabilities_logs-2021-06-11 2.pdf");
-        PDDocument document = Loader.loadPDF(file);
-        //Instantiate PDFTextStripper class
-        PDFTextStripper pdfStripper = new PDFTextStripper();
-        //Retrieving text from PDF document
-        String text = pdfStripper.getText(document);
-        String[] sText = text.split("\n");
-        System.out.println(text);
-        //Closing the document
-        document.close();
-        String user = "";
-
-
-
-        for(int i=1; i<sText.length; i++)
-        {
-            if(sText[i].split(" ")[0].equals("Username"))
-            {
-                user = sText[i+1].split(" ")[0];
-                System.out.println(user);
-                myWriter.write("Utilisateur : " + user + "\n");
-                int j = i+10;
-                int nombre = 1;
-                while(sText[j].split(" ")[0].equals(nombre + "."))
-                {
-                    nombre++;
-                    j++;
-                }
-                nombre--;
-                String[] iP = new String[nombre];
-                myWriter.write("    IP consultées : \n");
-                for(int t=0; t<nombre; t++)
-                {
-                    iP[t] = sText[i+10+t].split(" ")[3];
-                    System.out.println(iP[t]);
-
-                    myWriter.write("        " + (t+1) + ". " + iP[t] + "\n");
-                    myWriter.write("            Site trouvé : " + App.getAdress(iP[t]) + "\n");
-                }
-                myWriter.write("\n");
-                i = i + nombre + 10;
-            }
-        }
-
-        myWriter.write("Fin du rapport.");
-        myWriter.close();
-        System.out.println("Fin");
-
-    }
-
-
 
 }

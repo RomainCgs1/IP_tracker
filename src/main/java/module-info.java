@@ -1,6 +1,6 @@
 module IP_tracker {
     requires javafx.controls;
-    requires pdfbox.app;
+    requires pdfbox;
 
     exports org.example to javafx.graphics;
 }
