@@ -17,8 +17,6 @@
 
 package org.example;
 
-import org.xbill.DNS.*;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -35,8 +33,9 @@ public class App
             System.out.println("Saisir une addresse");
             ip = Lire.S();
             try {
-                test = Address.getByAddress(ip);
-                nom = Address.getHostName(test);
+                InetAddress inetAddress = InetAddress.getByName(ip);
+                nom = inetAddress.getHostName();
+
             } catch (UnknownHostException e) {
                 System.out.println("Inconnu");
                 nom = null;
@@ -49,12 +48,18 @@ public class App
         InetAddress test = null;
         String nom;
         try {
-            test = Address.getByAddress(adresse);
-            nom = Address.getHostName(test);
+
+            InetAddress inetAddress = InetAddress.getByName(adresse);
+
+            nom = inetAddress.getHostName();
         } catch (UnknownHostException e) {
             nom = "Inconnu";
-            System.out.println(nom);
         }
+        if(nom.equals(adresse))
+        {
+            nom = "Inconnu";
+        }
+        System.out.println(nom);
         return nom;
     }
 }

@@ -17,17 +17,9 @@
 
 package org.example;
 
-import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import java.io.File;
-import java.io.IOException;
 
 public class MainGraphique extends BorderPane {
 
