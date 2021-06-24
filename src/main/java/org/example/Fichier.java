@@ -17,6 +17,7 @@
 
 package org.example;
 
+import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.pdfbox.Loader;
@@ -103,6 +104,8 @@ public class Fichier {
 
 
         chemin = selectedFile.getAbsolutePath();
+
+
 
         File file = new File(chemin);
         PDDocument document = Loader.loadPDF(file);

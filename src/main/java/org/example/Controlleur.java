@@ -17,6 +17,7 @@
 
 package org.example;
 
+import javafx.scene.control.ProgressBar;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
