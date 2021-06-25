@@ -17,9 +17,9 @@
 
 package org.example;
 
-import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -102,11 +102,7 @@ public class Fichier {
 
         }
 
-
-
         chemin = selectedFile.getAbsolutePath();
-
-
 
         File file = new File(chemin);
         String[] sText = null;
@@ -198,10 +194,6 @@ public class Fichier {
 
 
         FileChooser fileChooser = new FileChooser();
-        /*if(saveChemin != null)
-        {
-            fileChooser.setInitialDirectory(new File(saveChemin));
-        }*/
         fileChooser.setTitle("Sauvegarder");
         fileChooser.setInitialFileName("Imputabilities_logs du " + this.date + " -- nom de domaine");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files", "*txt"));
