@@ -20,6 +20,7 @@ package org.example;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
@@ -110,7 +111,7 @@ public class Fichier {
         File file = new File(chemin);
         String[] sText = null;
 
-        try (PDDocument document = PDDocument.load(file)) {
+        try (PDDocument document = Loader.loadPDF(file)) {
 
             document.getClass();
 
