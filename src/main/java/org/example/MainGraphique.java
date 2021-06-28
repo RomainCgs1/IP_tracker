@@ -43,6 +43,7 @@ public class MainGraphique extends BorderPane {
         return HBMenu;
     }
 
+
     public MyText getText() {
         return text;
     }

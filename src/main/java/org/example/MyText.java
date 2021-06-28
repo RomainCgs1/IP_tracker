@@ -28,4 +28,9 @@ public class MyText extends Text {
         this.setText(text);
     }
 
+    public MyText()
+    {
+        this.setFont(Font.font("Helvetica Neue"));
+    }
+
 }

@@ -72,7 +72,6 @@ public class Controlleur {
                         this.vue.getText().setText("Impossible d'analyser le fichier.");
                     }
                 } catch (IOException e) {
-                    this.vue.getText().setFill(Color.RED);
                     this.vue.getText().setText("Il y a eu une erreur.");
                     e.printStackTrace();
                 }
