@@ -179,9 +179,10 @@ public class Fichier {
                         i = i + nombre + 10;
                     }
 
-                    System.out.println("Fin");
-                    this.contenu = this.contenu + "Fin du rapport.";
                 }
+
+                System.out.println("Fin");
+                this.contenu = this.contenu + "Fin du rapport.";
 
             }
             else {
