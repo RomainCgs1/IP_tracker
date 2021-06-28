@@ -19,6 +19,7 @@ package org.example;
 
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -55,7 +56,9 @@ public class MainGraphique extends BorderPane {
     public MainGraphique()
     {
         this.ouvrirPdf = new MyB("Analyser un fichier");
+        this.ouvrirPdf.setTooltip(new Tooltip("Permet de choisir le pdf que vous voulez analyser puis l'analyse."));
         this.enregistrer = new MyB("Enregistrer");
+        this.enregistrer.setTooltip(new Tooltip("Permet d'enregistrer l'analyse et n'est donc disponible qu'après cette dernière."));
         this.HBMenu = new HBox(this.ouvrirPdf, this.enregistrer);
         this.setTop(this.HBMenu);
         this.text = new MyText("test");
