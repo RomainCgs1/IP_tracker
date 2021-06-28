@@ -17,7 +17,6 @@
 
 package org.example;
 
-import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.pdfbox.Loader;
